@@ -16,6 +16,8 @@ add_subdirectory(lib/thinning)
 add_subdirectory(lib/binarisation)
 add_subdirectory(lib/optimisation)
 
+add_definitions( "-std=c++11" )
+
 add_executable( ThinningTest src/ThinningTest.cpp )
 add_executable( BinarisationTest src/BinarisationTest.cpp )
 
