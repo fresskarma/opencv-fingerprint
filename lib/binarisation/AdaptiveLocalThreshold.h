@@ -8,6 +8,12 @@ namespace localThreshold {
     //ein Bild mit der Adaptive-Local-Threshold-Methode binarisieren
     void binarisation(cv::Mat& im, int numTilesWidth, int numTilesHeight);
 
+    void deltaThresholding(unsigned int thresholds[], int numOfThresholds, unsigned char deltas[], int deltaThreshold);
+
+    void medianThresholding(unsigned int thresholds[], int numOfThresholds);
+
+    void averageThresholding(unsigned int thresholds[], int numOfThresholds);
+
 }
 
 

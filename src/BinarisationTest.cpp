@@ -20,8 +20,8 @@ int main( int argc, const char* argv[] )
     }
 
     Mat img = sourceImage.clone();
-    localThreshold::binarisation(img, 40, 40);
-    cv::threshold(img, img, 128, 255, cv::THRESH_BINARY);
+    localThreshold::binarisation(img, 41, 56);
+    cv::threshold(img, img, 50, 255, cv::THRESH_BINARY);
     Mat binImg = img.clone();
     ideka::binOptimisation(img);
 
