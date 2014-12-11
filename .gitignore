@@ -1,3 +1,7 @@
+BinarisationTest
+GapOptimisationTest
+ThinningTest
+
 build/*
 !build/.gitkeep
 
