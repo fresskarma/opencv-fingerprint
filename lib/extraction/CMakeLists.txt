@@ -1,6 +1,7 @@
 file(GLOB SourceFiles "*.h" "*.cpp")
 add_library(
     ExtractionAlgorithms
-    CrossingNumber.cpp
+    Filter.cpp
     Minutiae.cpp
+    CrossingNumber.cpp
 )
