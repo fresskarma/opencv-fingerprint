@@ -14,7 +14,14 @@ using namespace std;
 int main( int argc, const char* argv[] )
 {
 
-	Mat sourceImage = imread("/home/raphael/opencv-fingerprint/src/4.bmp", CV_LOAD_IMAGE_GRAYSCALE);
+    // First argv is always the binary being executed
+    if(argc != 2) {
+        std::cout << "Please provide a target file as the parameter..." << std::endl;
+        exit(1);
+    }
+
+    Mat sourceImage = cv::imread(argv[1], 0);
+
     if(! sourceImage.data )                              // Check for invalid input
     {
         cout <<  "Could not open or find the image" << endl ;
