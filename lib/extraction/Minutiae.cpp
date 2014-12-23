@@ -3,7 +3,7 @@
 Minutiae::Minutiae(int x, int y, Type t)
          : locX(x), locY(y), type(t)
 {
-    //ctor
+    Minutiae::markedForErasing = false;
 }
 
 Minutiae::~Minutiae()
@@ -24,4 +24,14 @@ int Minutiae::getLocY()
 Minutiae::Type Minutiae::getType()
 {
     return type;
+}
+
+void Minutiae::setMarkTrue()
+{
+    Minutiae::markedForErasing = true;
+}
+
+bool Minutiae::getMark()
+{
+    return Minutiae::markedForErasing;
 }

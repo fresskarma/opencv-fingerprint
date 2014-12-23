@@ -3,8 +3,8 @@
 #include <iostream>
 #include <future>
 
-#include "ZhangSuen.h"
-#include "GuoHall.h"
+#include "E:/opencv-fingerprint/lib/thinning/ZhangSuen.h"
+#include "E:/opencv-fingerprint/lib/thinning/GuoHall.h"
 
 void f1(cv::Mat& source) {
     cv::Mat target(source.size(), CV_8UC1, cv::Scalar(0));

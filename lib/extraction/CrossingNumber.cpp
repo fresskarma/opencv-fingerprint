@@ -22,31 +22,16 @@ void getMinutiae(Mat& im, std::vector<Minutiae>& minutiae, int border ){
 
             //black pixel found?
             if(im.at<uchar>(cv::Point(i, j)) == 0){
-                //check 8-Neighborhood for other black pixels, if black -> cn++
-                if(im.at<uchar>(cv::Point(i-1, j-1)) == 0){
-                    cn++;
-                }
-                if(im.at<uchar>(cv::Point(i, j-1)) == 0){
-                    cn++;
-                }
-                if(im.at<uchar>(cv::Point(i+1, j-1)) == 0){
-                    cn++;
-                }
-                if(im.at<uchar>(cv::Point(i+1, j)) == 0){
-                    cn++;
-                }
-                if(im.at<uchar>(cv::Point(i+1, j+1)) == 0){
-                    cn++;
-                }
-                if(im.at<uchar>(cv::Point(i, j+1)) == 0){
-                    cn++;
-                }
-                if(im.at<uchar>(cv::Point(i-1, j+1)) == 0){
-                    cn++;
-                }
-                if(im.at<uchar>(cv::Point(i-1, j)) == 0){
-                    cn++;
-                }
+                //iterate through 8-Neighborhood and count all transitions from black to white and reverse
+                cn = cn + abs(im.at<uchar>(cv::Point(i-1, j-1))/255 - im.at<uchar>(cv::Point(i  , j-1))/255);
+                cn = cn + abs(im.at<uchar>(cv::Point(i  , j-1))/255 - im.at<uchar>(cv::Point(i+1, j-1))/255);
+                cn = cn + abs(im.at<uchar>(cv::Point(i+1, j-1))/255 - im.at<uchar>(cv::Point(i+1, j  ))/255);
+                cn = cn + abs(im.at<uchar>(cv::Point(i+1, j  ))/255 - im.at<uchar>(cv::Point(i+1, j+1))/255);
+                cn = cn + abs(im.at<uchar>(cv::Point(i+1, j+1))/255 - im.at<uchar>(cv::Point(i  , j+1))/255);
+                cn = cn + abs(im.at<uchar>(cv::Point(i  , j+1))/255 - im.at<uchar>(cv::Point(i-1, j+1))/255);
+                cn = cn + abs(im.at<uchar>(cv::Point(i-1, j+1))/255 - im.at<uchar>(cv::Point(i-1, j  ))/255);
+                cn = cn + abs(im.at<uchar>(cv::Point(i-1, j  ))/255 - im.at<uchar>(cv::Point(i-1, j-1))/255);
+                cn = cn/2;
                 //std::cout<<"cn = " << cn << std::endl;
 
                 if(cn == 1){

@@ -11,11 +11,15 @@ class Minutiae
         int getLocX();
         int getLocY();
         Type getType();
+        void setMarkTrue();
+        bool getMark();
     protected:
     private:
         int locX;
         int locY;
         Type type;
+        bool markedForErasing;
+
 };
 
 #endif // MINUTIAE_H

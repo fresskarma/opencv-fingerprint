@@ -12,6 +12,8 @@ namespace ideka {
         ridgeEnhancement(im);
         valleyEnhancement(im);
         //smooth(im);
+        //cv::Mat element = cv::getStructuringElement(cv::MORPH_CROSS, cv::Size(3, 3));
+        //morphologyEx( im, im, MORPH_CLOSE, element );
     }
 
     void ridgeEnhancement(cv::Mat& im){
@@ -87,7 +89,7 @@ namespace ideka {
         int numIterations = 1;
         cv::Mat element = cv::getStructuringElement(cv::MORPH_CROSS, cv::Size(3, 3));
         //closing
-        morphologyEx( im, im, MORPH_OPEN, element, Point(-1,-1), numIterations, BORDER_CONSTANT, morphologyDefaultBorderValue() );
+        morphologyEx( im, im, MORPH_CLOSE, element, Point(-1,-1), numIterations, BORDER_CONSTANT, morphologyDefaultBorderValue() );
 
         //opening
         //morphologyEx( im, im, MORPH_CLOSE, element, Point(-1,-1), numIterations, BORDER_CONSTANT, morphologyDefaultBorderValue() );

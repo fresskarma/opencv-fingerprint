@@ -11,7 +11,7 @@ using namespace cv;
 namespace localThreshold {
 
     void binarisation(cv::Mat& im, int numTilesWidth, int numTilesHeight){
-        int deltaThreshold = 100;
+        int deltaThreshold = 50;
         int tileWidth = im.cols/numTilesWidth;
         int tileHeight = im.rows/numTilesHeight;
         unsigned int greyValuesAdded = 0;
